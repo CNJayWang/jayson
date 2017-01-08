@@ -180,16 +180,16 @@ func (node *DataNode) JSONObjectArray() ([]JSONObjectType, error) {
 }
 
 //数据节点为string类型
-func (v *DataNode) String() (string, error) {
+func (node *DataNode) String() (string, error) {
 	valid := false
 
-	switch v.data.(type) {
+	switch node.data.(type) {
 	case string:
 		valid = true
 	}
 
 	if valid {
-		return v.data.(string), nil
+		return node.data.(string), nil
 	}
 	//类型错误时返回空字符串
 	return EMPTY_STRING, ErrNotString
